@@ -1,0 +1,143 @@
+.root {
+  height: 100%;
+}
+.chatparticipants {
+  width: 100%;
+  background-color:#77bbff;
+  padding: 10px 0px;
+  overflow: hidden;
+}
+@media screen and (min-width: 600px) {
+  .chatparticipants {
+    height: 100vh;
+  }
+}
+.messageLine {
+  white-space: pre;
+}
+.chatMessagesContainer {
+  height: calc( 100vh - 70px);
+  background-image: url("../img/back2.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  /* padding: 10px; */
+  overflow-y: scroll;
+}
+@media screen and (min-width: 600px) {
+  .chatMessagesContainer {
+    height: 100vh;
+  }
+}
+.avatarContainer {
+  height: 90px;
+  width: 100%;
+  position: relative;
+  margin: 16px;
+}
+@media screen and (min-width: 600px) {
+  .chatAvatar {
+    width: 80px !important;
+    height: 80px !important;
+    margin: 0px 10px 0px 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .chatAvatar {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}
+.messagePaper {
+  position: relative;
+  border-radius: 20px 20px 20px 0px !important;
+  background-color: #5588ff !important;
+  padding: 10px;
+  margin: 7px 0 7px 0;
+}
+.selfMessagePaper {
+  position: relative;
+  border-radius: 20px 20px 0px 20px !important;
+  background-color: #77eeff !important;
+  padding: 10px;
+  margin: 7px 0 7px 0;
+}
+.avatar {
+  cursor: pointer;
+  width: 80px !important;
+  height: 80px !important;
+}
+@media screen and (max-width: 600px) {
+  .avatar {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+.chatAvatar {
+  width: 50px !important;
+  height: 50px !important;
+}
+.textField {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+.textFieldContainer {
+  background-color: rgba(100, 100, 100, 0.8);
+  padding: 15px 0 15px 0;
+  position: sticky;
+  bottom: 0px;
+}
+.attachButton {
+  width: 40px !important;
+  height: 40px !important;
+  margin: 8px 0px 0px 0px !important;
+
+}
+.sendButton {
+  /* width: 120px !important; */
+  height: 100% !important;
+  /* margin: 8px 0px 0px 0px !important; */
+
+}
+@media screen and (max-width: 500px) {
+  .sendButton{
+    width: 40px !important;
+  }
+}
+.username {
+  color: rgba(0, 0, 0, 0.54);
+}
+.nobadge{
+  top: 10px !important;
+  right: 5px !important;
+  visibility: collapse;
+  opacity: 0;
+  transition:all .2s ease-in;
+}
+.constbadge , .sigbadge{
+  top: 10px !important;
+  right: 5px !important;
+  visibility: visible;
+  opacity: 1;
+  transition:all .2s ease-in;
+}
+@keyframes badge{
+  0%{opacity: 0;}
+  50%{opacity: 1;}
+  100%{opacity: 0;}
+}
+.sigbadge{
+
+  animation-name: badge;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+}
+.imghover:hover{
+  height: 60vh !important;
+}
+.imghover:hover~.closehover{
+  opacity:0 !important;
+}
+
+
+

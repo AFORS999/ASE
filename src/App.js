@@ -1,7 +1,25 @@
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
+import DialogBox from "./authentication/DialogBox";
 
 function App() {
+  const history = useNavigate();
+  const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const handleDialogOpen = () => {
+    setDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setDialogOpen(false);
+  };
+
+  const redirectToProfile = () => {
+    history('/about');
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +36,15 @@ function App() {
           Learn React
         </a>
       </header>
+      <body>
+        <DialogBox state={isDialogOpen} handleClose={handleDialogClose} />
+        <button onClick={handleDialogOpen}>
+          Activate Lasers
+        </button>
+        <button onClick={redirectToProfile}>
+          Deactivate Lasers
+        </button>
+      </body>
     </div>
   );
 }
