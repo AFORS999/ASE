@@ -1,0 +1,36 @@
+.App-logo {
+    max-height: 250px;
+    max-width: 250px;
+    pointer-events: none;
+    position: absolute;
+    left: 60px;
+    top: 0px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.fade {
+    animation: fadeinout 7s linear infinite;
+}
+
+@keyframes fadeinout {
+    0% {
+        opacity: 0;
+    }
+
+    14% {
+        opacity: 1;
+    }
+
+    86% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

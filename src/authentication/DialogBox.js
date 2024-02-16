@@ -52,6 +52,12 @@ const useStyle = styled((theme) => ({
   },
 }));
 
+const rootStyle = {
+  height: "100%",
+  width: 700,
+  backgroundColor: "#888",
+}
+
 export default function DialogBox(props) {
   const classes = useStyle();
   const theme = useTheme();

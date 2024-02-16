@@ -16,7 +16,9 @@ import Alert from '@mui/material/Alert';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import Const from "../static/CONST";
-import styles from "./Auth.module.css"
+import Paper from '@mui/material/Paper';
+import name from '../static/Name2.png'
+
 
 
 const useStyle = styled((theme) => ({
@@ -64,7 +66,16 @@ export default function Login(props) {
   const rootStyle = {
     minHeight: 400,
     width: "100%",
+    height: "100%"
   };
+  const paperStyle = {
+    marginTop: "100px",
+    width: "70%",
+    height: "500px"
+  };
+  const nameStyle = {
+    height: "200px"
+  }
 
   const classes = useStyle();
   const [values, setValues] = useState(initialStates);
@@ -135,6 +146,7 @@ export default function Login(props) {
 
   return (
     <form onSubmit={handleLogin}>
+
       <Grid
         container
         justifyContent="center"
@@ -157,91 +169,100 @@ export default function Login(props) {
             </Alert>
           </Snackbar>
         </Portal>
-        <Grid
-          item
-          container
-          xl={12}
-          lg={12}
-          xs={12}
-          alignItems="center"
-          justifyContent="center"
-        >
-          {[values.usernameError, values.passwordError].map((value) => {
-            return (
-              <Grid item lg={7} sm={8} xs={10} style={errorTextsStyle}>
-                {value}
-              </Grid>
-            );
-          })}
-          <Grid item lg={7} sm={8} xs={10}>
-            <FormControl style={textFieldsStyle}>
-              <InputLabel htmlFor="standard-adornment-password">
-                Username
-              </InputLabel>
-              <Input
-                id="standard-number"
-                value={values.username}
-                onChange={handleChange("username")}
-                error={
-                  values.requiredError || values.usernameError ? true : false
-                }
-              />
-            </FormControl>
+        <Paper style={paperStyle} elevation={5}>
+          <Grid item container xl={12} lg={12} xs={12} alignItems="center"
+            justifyContent="center">
+            <img src={name} style={nameStyle} />
           </Grid>
-          <Grid item lg={7} sm={8} xs={10}>
-            <FormControl style={textFieldsStyle}>
-              <InputLabel htmlFor="standard-adornment-password">
-                Password
-              </InputLabel>
-              <Input
-                id="standard-adornment-password"
-                type={values.showPassword ? "text" : "password"}
-                value={values.password}
-                onChange={handleChange("password")}
-                error={values.passwordError ? true : false}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                    >
-                      {values.showPassword ? (
-                        <VisibilityIcon />
-                      ) : (
-                        <VisibilityOffIcon />
-                      )}
-                    </IconButton>
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-          </Grid>
-          <Grid item lg={7} sm={8} xs={10}></Grid>
           <Grid
             item
             container
-            lg={7}
-            sm={8}
-            xs={10}
+            xl={12}
+            lg={12}
+            xs={12}
             alignItems="center"
-            justifyContent="space-between"
+            justifyContent="center"
           >
-            <Grid item lg={6} sm={6} xs={7}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                style={loginButtonStyle}
-                fullWidth="true"
-
-              >
-                Login
-              </Button>
+            {[values.usernameError, values.passwordError].map((value) => {
+              return (
+                <Grid item lg={7} sm={8} xs={10} style={errorTextsStyle}>
+                  {value}
+                </Grid>
+              );
+            })}
+            <Grid item lg={7} sm={8} xs={10}>
+              <FormControl style={textFieldsStyle}>
+                <InputLabel htmlFor="standard-adornment-password">
+                  Username
+                </InputLabel>
+                <Input
+                  id="standard-number"
+                  value={values.username}
+                  onChange={handleChange("username")}
+                  error={
+                    values.requiredError || values.usernameError ? true : false
+                  }
+                />
+              </FormControl>
             </Grid>
+            <Grid item lg={7} sm={8} xs={10}>
+              <FormControl style={textFieldsStyle}>
+                <InputLabel htmlFor="standard-adornment-password">
+                  Password
+                </InputLabel>
+                <Input
+                  id="standard-adornment-password"
+                  type={values.showPassword ? "text" : "password"}
+                  value={values.password}
+                  onChange={handleChange("password")}
+                  error={values.passwordError ? true : false}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? (
+                          <VisibilityIcon />
+                        ) : (
+                          <VisibilityOffIcon />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </Grid>
+            <Grid item lg={7} sm={8} xs={10}></Grid>
+            <Grid
+              item
+              container
+              lg={7}
+              sm={8}
+              xs={10}
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <Grid item lg={6} sm={6} xs={7}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  style={loginButtonStyle}
+                  fullWidth="true"
+
+                >
+                  Login
+                </Button>
+              </Grid>
+
+            </Grid>
+
           </Grid>
-        </Grid>
+        </Paper>
       </Grid>
+
     </form >
   );
 }

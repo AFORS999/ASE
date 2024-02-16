@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from './logo.svg';
+import logo1 from './static/logo1.png'
 import './App.css';
 import DialogBox from "./authentication/DialogBox";
 
 function App() {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [isDialogOpen, setDialogOpen] = useState(false);
 
   const handleDialogOpen = () => {
@@ -17,13 +18,13 @@ function App() {
   };
 
   const redirectToProfile = () => {
-    history('/about');
+    navigate('/about');
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo1} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

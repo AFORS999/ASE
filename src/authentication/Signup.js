@@ -18,7 +18,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import EmailVerify from "./EmailVerify";
 //import { Visibility, VisibilityOff } from "@material-ui/icons";
 import Const from "../static/CONST";
-import "./Auth.css"
+import "./Auth.module.css"
 
 const useStyle = styled((theme) => ({
   root: {
@@ -40,6 +40,32 @@ const useStyle = styled((theme) => ({
   },
   alertMessage: {},
 }));
+
+const loginButtonStyle = {
+  marginTop: "30px",
+  color: '#ffffff',
+  backgroundColor: '#25995c',
+};
+const inputLabelStyle = {
+  activeColor: '#25995c',
+}
+const textFieldsStyle = {
+  width: "100%",
+  marginTop: "20px",
+  color: '#25995c',
+
+};
+const errorTextsStyle = {
+  color: "#f00",
+  fontSize: 12,
+};
+const rootStyle = {
+  minHeight: 400,
+  width: "100%",
+  alignItems: "center"
+};
+
+const alertMessageStyle = {};
 
 export default function Signup() {
   //const history = useNavigate();
@@ -167,9 +193,9 @@ export default function Signup() {
         <form onSubmit={handleSignup}>
           <Grid
             container
-            justify="center"
+            justifyContent="center"
             alignItems="flex-start"
-            className={classes.root}
+            style={rootStyle}
           >
             <Grid
               item
@@ -178,7 +204,7 @@ export default function Signup() {
               lg={12}
               xs={12}
               alignItems="center"
-              justify="center"
+              justifyContent="center"
             >
               {[
                 values.nameError,
@@ -192,15 +218,15 @@ export default function Signup() {
                     lg={7}
                     sm={8}
                     xs={10}
-                    className={classes.errorTexts}
+                    style={errorTextsStyle}
                   >
                     {value}
                   </Grid>
                 );
               })}
               <Grid item lg={7} sm={8} xs={10}>
-                <FormControl className={classes.textFields}>
-                  <InputLabel htmlFor="standard-adornment-password">
+                <FormControl style={textFieldsStyle}>
+                  <InputLabel style={inputLabelStyle} htmlFor="standard-adornment-password">
                     Name
                   </InputLabel>
                   <Input
@@ -212,7 +238,7 @@ export default function Signup() {
                 </FormControl>
               </Grid>
               <Grid item lg={7} sm={8} xs={10}>
-                <FormControl className={classes.textFields}>
+                <FormControl style={textFieldsStyle}>
                   <InputLabel htmlFor="standard-adornment-password">
                     Username
                   </InputLabel>
@@ -225,7 +251,7 @@ export default function Signup() {
                 </FormControl>
               </Grid>
               <Grid item lg={7} sm={8} xs={10}>
-                <FormControl className={classes.textFields}>
+                <FormControl style={textFieldsStyle}>
                   <InputLabel htmlFor="standard-adornment-password">
                     Email
                   </InputLabel>
@@ -238,7 +264,7 @@ export default function Signup() {
                 </FormControl>
               </Grid>
               <Grid item lg={7} sm={8} xs={10}>
-                <FormControl className={classes.textFields}>
+                <FormControl style={textFieldsStyle}>
                   <InputLabel htmlFor="standard-adornment-password">
                     Password
                   </InputLabel>
@@ -267,7 +293,7 @@ export default function Signup() {
                 </FormControl>
               </Grid>
               <Grid item lg={7} sm={8} xs={10}>
-                <FormControl className={classes.textFields}>
+                <FormControl style={textFieldsStyle}>
                   <InputLabel htmlFor="standard-adornment-password">
                     Confirm password
                   </InputLabel>
@@ -302,14 +328,14 @@ export default function Signup() {
                 sm={8}
                 xs={10}
                 alignItems="center"
-                justify="space-between"
+                justifyContent="space-between"
               >
                 <Grid item lg={6} sm={6} xs={7}>
                   <Button
                     type="submit"
                     variant="contained"
                     color="primary"
-                    className={classes.loginButton}
+                    style={loginButtonStyle}
                     fullWidth="true"
                   >
                     Signup
@@ -331,7 +357,7 @@ export default function Signup() {
           open={open}
           autoHideDuration={6000}
           onClose={handleClose}
-          className={classes.alertMessage}
+          style={alertMessageStyle}
           anchorOrigin={{
             vertical: "bottom",
             horizontal: "center",
